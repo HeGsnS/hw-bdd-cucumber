@@ -20,12 +20,15 @@ Background: movies have been added to database
   | Chicken Run             | G      | 21-Jun-2000  |
 
   And I am on the RottenPotatoes home page
-  Then 10 seed movies should exist
 
 Scenario: sort movies alphabetically
+  
   When I follow "Movie Title"
-  # your steps here
+  Then I should see "Raiders of the Lost Ark" before "The Help"
+  And I should see "Chocolat" before "The Terminator"
 
 Scenario: sort movies in increasing order of release date
+
   When I follow "Release Date"
-  # your steps here
+  Then I should see "Raiders of the Lost Ark" before "The Help"
+  And I should see "The Terminator" before "Amelie"
