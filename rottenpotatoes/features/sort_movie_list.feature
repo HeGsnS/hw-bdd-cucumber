@@ -32,3 +32,4 @@ Scenario: sort movies in increasing order of release date
   When I follow "Release Date"
   Then I should see "Raiders of the Lost Ark" before "The Help"
   And I should see "The Terminator" before "Amelie"
+  And I should see "Raiders of the Lost Ark" before "The Terminator"

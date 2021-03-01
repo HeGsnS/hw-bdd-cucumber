@@ -26,16 +26,16 @@ Feature: display list of movies filtered by MPAA rating
     # enter step(s) to ensure that PG and R movies are visible
     # enter step(s) to ensure that other movies are not visible
     Given I am on the home page                                                                                                     # features/step_definitions/web_steps.rb:44
-    When I uncheck the following ratings: G, NC-17, PG-13                                                                           # features/step_definitions/movie_steps.rb:35
-    And I press "Refresh" button                                                                                                    # features/step_definitions/movie_steps.rb:16
-    Then I should see the following movies: Amelie, Raiders of the Lost Ark, The Incredibles,  The Terminator, When Harry Met Sally # features/step_definitions/movie_steps.rb:20
-    And I should not see the following movies: Aladdin, The Help, 2001: A Space Odyssey, Chocolat, Chicken Run                      # features/step_definitions/movie_steps.rb:20
+    When I uncheck the following ratings: G, NC-17, PG-13                                                                           # features/step_definitions/movie_steps.rb:46
+    And I press "Refresh" button                                                                                                    # features/step_definitions/movie_steps.rb:21
+    Then I should see the following movies: Amelie, Raiders of the Lost Ark, The Incredibles,  The Terminator, When Harry Met Sally # features/step_definitions/movie_steps.rb:26
+    And I should not see the following movies: Aladdin, The Help, 2001: A Space Odyssey, Chocolat, Chicken Run                      # features/step_definitions/movie_steps.rb:26
 
   Scenario: all ratings selected                               # features/filter_movie_list.feature:36
     Given I am on the RottenPotatoes home page                 # features/step_definitions/web_steps.rb:44
-    When I check the following ratings: G, PG, PG-13, NC-17, R # features/step_definitions/movie_steps.rb:35
-    And I press "Refresh" button                               # features/step_definitions/movie_steps.rb:16
-    Then I should see all the movies                           # features/step_definitions/movie_steps.rb:45
+    When I check the following ratings: G, PG, PG-13, NC-17, R # features/step_definitions/movie_steps.rb:46
+    And I press "Refresh" button                               # features/step_definitions/movie_steps.rb:21
+    Then I should see all the movies                           # features/step_definitions/movie_steps.rb:56
 
 Feature: display list of movies sorted by different criteria
   As an avid moviegoer
@@ -59,14 +59,15 @@ Feature: display list of movies sorted by different criteria
 
   Scenario: sort movies alphabetically                            # features/sort_movie_list.feature:24
     When I follow "Movie Title"                                   # features/step_definitions/web_steps.rb:56
-    Then I should see "Raiders of the Lost Ark" before "The Help" # features/step_definitions/movie_steps.rb:10
-    And I should see "Chocolat" before "The Terminator"           # features/step_definitions/movie_steps.rb:10
+    Then I should see "Raiders of the Lost Ark" before "The Help" # features/step_definitions/movie_steps.rb:11
+    And I should see "Chocolat" before "The Terminator"           # features/step_definitions/movie_steps.rb:11
 
-  Scenario: sort movies in increasing order of release date       # features/sort_movie_list.feature:30
-    When I follow "Release Date"                                  # features/step_definitions/web_steps.rb:56
-    Then I should see "Raiders of the Lost Ark" before "The Help" # features/step_definitions/movie_steps.rb:10
-    And I should see "The Terminator" before "Amelie"             # features/step_definitions/movie_steps.rb:10
+  Scenario: sort movies in increasing order of release date            # features/sort_movie_list.feature:30
+    When I follow "Release Date"                                       # features/step_definitions/web_steps.rb:56
+    Then I should see "Raiders of the Lost Ark" before "The Help"      # features/step_definitions/movie_steps.rb:11
+    And I should see "The Terminator" before "Amelie"                  # features/step_definitions/movie_steps.rb:11
+    And I should see "Raiders of the Lost Ark" before "The Terminator" # features/step_definitions/movie_steps.rb:11
 
 4 scenarios (4 passed)
-23 steps (23 passed)
-0m0.963s
+24 steps (24 passed)
+0m0.573s
